@@ -4,8 +4,8 @@
   "description": "projet 3 crée et initliasé le mercredi 26 janvier 2022",
   "main": "index.js",
   "scripts": {
-    "sass" : "sass --watch sass/main.scss:public/css/style.css",
-    "prefix" : "postcss ./public/css/style.css --use autoprefixer -d ./public/css/prefixed"
+    "sass" : "sass --watch sass/main.scss:css/style.css",
+    "prefix" : "postcss ./css/style.css --use autoprefixer -d ./css/prefixed"
   },
   "author": "Younes Lahouiti",
   "license": "ISC",

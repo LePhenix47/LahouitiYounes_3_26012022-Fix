@@ -570,61 +570,53 @@ h1, h2 {
   flex-wrap: wrap;
   margin: 10px 0;
 }
-.menu__body {
-  display: flex;
-  flex-direction: row;
+.menu__card {
+  overflow: hidden;
+  text-overflow: ellipsis;
   min-width: 340px;
   background-color: #fff;
   box-shadow: 5px 5px 5px #d2d2d2, -5px 5px 5px #d2d2d2;
   border-radius: 15px;
   max-height: 80px;
   margin: 20px 0;
+  padding: 10px 5px 10px 5px;
   opacity: 0;
   transform: translateY(0%);
   animation: list-card 500ms;
   animation-fill-mode: both;
 }
-.menu__body--1 {
+.menu__card--1 {
   animation-delay: 150ms;
 }
-.menu__body--2 {
+.menu__card--2 {
   animation-delay: 300ms;
 }
-.menu__body--3 {
+.menu__card--3 {
   animation-delay: 450ms;
 }
-.menu__body--4 {
+.menu__card--4 {
   animation-delay: 600ms;
 }
-.menu__body--5 {
+.menu__card--5 {
   animation-delay: 750ms;
 }
-.menu__body--6 {
+.menu__card--6 {
   animation-delay: 900ms;
 }
-.menu__body--7 {
+.menu__card--7 {
   animation-delay: 1050ms;
 }
-.menu__body--8 {
+.menu__card--8 {
   animation-delay: 1200ms;
 }
-.menu__body--9 {
+.menu__card--9 {
   animation-delay: 1350ms;
 }
-.menu__body--10 {
+.menu__card--10 {
   animation-delay: 1500ms;
 }
-.menu__body--11 {
+.menu__card--11 {
   animation-delay: 1650ms;
-}
-.menu__body:hover > .menu__confirmation {
-  display: flex;
-  flex: 3;
-  border-radius: 0 15px 15px 0;
-}
-.menu__card {
-  flex: 11;
-  padding: 10px 5px 10px 5px;
 }
 .menu__content {
   display: flex;
@@ -638,18 +630,17 @@ h1, h2 {
   font-weight: bold;
 }
 .menu__confirmation {
-  display: none;
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  justify-content: flex-end;
   background: #99e2d0;
   padding: 5px;
   transition-property: transform;
   transition-duration: 500ms;
   transition-timing-function: ease-in-out;
+  transform: translateX(0);
 }
 .menu__confirmation-checkmark {
   color: #fff;
-  font-size: 26px;
 }
 .menu__form {
   background: #f6f6f6;
@@ -680,7 +671,6 @@ h1, h2 {
   font-size: 14px;
   white-space: nowrap;
   flex: 11;
-  width: 50px;
 }
 
 @keyframes list-card {
