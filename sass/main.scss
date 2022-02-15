@@ -1,0 +1,23 @@
+//Utils
+@import './Utils/extensions';
+@import './Utils/functions';
+@import './Utils/mixins';
+@import './Utils/variables';
+
+//Base
+@import './Base/norm';
+@import './Base/typography';
+
+//Components
+@import './Components/buttons';
+
+//Layout
+@import './Layout/header';
+@import './Layout/footer';
+
+//Pages
+
+@import './Pages/accueil';
+@import './Pages/menu';
+
+//Fichier SASS

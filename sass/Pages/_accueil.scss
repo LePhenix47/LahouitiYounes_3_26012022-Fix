@@ -1,0 +1,207 @@
+.spinloader {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: -99;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  &__fork-knife{
+    color: $color-primary;
+    font-size: 30px;
+    
+  }
+  &__quarter-circle{
+    color: $color-secondary;
+    width: 20px;
+    border-radius: 5px;
+  }
+  &__half-circle{
+    color: $color-tertiary;
+  }
+}
+
+.main {
+  &__text {
+    @extend %text;
+  }
+
+  &__operation {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: flex-start;
+    align-items: center;
+
+    h2 {
+      margin: 22px 0 22px 0;
+      @include Roboto-heading;
+      @include laptop-only {
+        text-align: center;
+      }
+      @include desktop-only {
+        text-align: center;
+      }
+    }
+
+    &-card-list {
+      display: flex;
+      position: relative;
+      counter-reset: fonction; //OL
+
+      @include mobile-only {
+        flex-flow: column wrap;
+      }
+      @include tablet-only {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    &-card {
+      position: relative;
+      @include border-radius(20px);
+      @include box-shadow(5px, -5px, 5px, 3px, $color-grey);
+      padding: 25px;
+      margin: 20px;
+      background-color: $color-light-grey;
+      
+      list-style-type: none;
+      counter-increment: fonction; //LI
+      &::before {
+        content: counter(fonction);
+        color: white;
+        background: $color-primary;
+        border-radius: 15px;
+        padding: 5px 10px;
+        position: absolute;
+        left: -20px;
+        top: 20px;
+      }
+      &:hover {
+        background: #f5edff;
+        i {
+          color: $color-primary;
+        }
+      }
+      &-row {
+        display: flex;
+      }
+    }
+
+    i {
+      color: $color-icons;
+    }
+  }
+
+  &__section {
+    background-color: $color-light-grey;
+    @include center-flex;
+    flex-direction: column;
+    &-heading {
+      margin: 22px 0 22px 0;
+      @include Roboto-heading;
+      @include laptop-only {
+        text-align: center;
+      }
+      @include desktop-only {
+        text-align: center;
+      }
+    }
+  }
+
+  &__card-list--grid {
+    display: grid;
+    margin-bottom: 60px;
+    @include grid-prop-wide-screen;
+    gap: 50px;
+    @include mobile-only {
+      @include grid-prop-mobile;
+      gap: 20px;
+      width: 335px;
+    }
+    @include tablet-only {
+      gap: 20px;
+    }
+  }
+
+  &__card-list--flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    @include desktop-only {
+      width: 900px;
+    }
+  }
+
+  &__section-card-new {
+    background-color: $color-tertiary;
+    color: darken($color-tertiary, 40%);
+    padding: 7px;
+    @include border-radius(2px);
+    position: absolute;
+    right: 13px;
+    top: 13px;
+  }
+
+  &__section-card {
+    transition-property: transform;
+    transition-duration: 400ms; //Avant et après évènement
+    @include border-radius(20px);
+    @include box-shadow;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: relative;
+    width: 400px;
+    @include mobile-only {
+      width: 90%;
+      min-width: 90%;
+    }
+    height: 250px;
+    margin: 20px;
+    @include mobile-only {
+      margin: 20px 0;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+      //Agrandit de 5% la carte lors du survol
+    }
+    &:active {
+      transform: scale(0.95);
+      //Rapetissit de 5% la carte lors du clic
+    }
+    &-img {
+      object-fit: cover;
+      overflow: hidden;
+      @include border-corner-rad(15px, 15px, 0, 0);
+      height: 170px;
+    }
+    &-content {
+      @include border-corner-rad(0, 0, 15px, 15px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: $color-white;
+      position: relative;
+    }
+    &-text {
+      margin: 10px;
+      p {
+        margin: 5px;
+      }
+      h4 {
+        margin: 5px 5px 5px 5px;
+      }
+    }
+    &-like-btn {
+      position: absolute;
+      right: 25px;
+      bottom: 25px;
+      font-size: 22px;
+    }
+  }
+}

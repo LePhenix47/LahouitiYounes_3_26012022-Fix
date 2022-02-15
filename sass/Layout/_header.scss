@@ -1,0 +1,108 @@
+.header {
+  display: flex;
+  background-color: $color-white;
+  flex-flow: column wrap;
+  position: relative;
+  #no-display {
+    display: none;
+  }
+
+  h1 {
+    font-weight: normal;
+  }
+
+  a {
+    z-index: 2;
+    width: 22px;
+    height: 23px;
+    transition-property: transform;
+    transition-duration: 400ms;
+    @include mobile-only {
+      @include pos-abs(25px, 0, 0, 20px);
+    }
+    @include tablet-only {
+      @include pos-abs(35px, 0, 0, 50px);
+    }
+    @include laptop-only {
+      @include pos-abs(35px, 0, 0, 50px);
+    }
+    @include desktop-only {
+      @include pos-abs(35px, 0, 0, 50px);
+    }
+    &:hover{
+      transform: rotate(360deg);
+    }
+    &:active{
+      transform: scale(0.95);
+    }
+  }
+
+  i {
+    font-size: 22px;
+  }
+
+  &__text {
+    @extend %text;
+    margin: 16px 0 16px 0;
+  }
+
+  &__logo-slogan {
+    display: inline;
+  
+    @include mobile-only {
+      display: none;
+    }
+    @include tablet-only {
+      display: none;
+    }
+  }
+
+  &__heading {
+    font-family: "Roboto";
+    margin: 20px 0px 20px 0;
+  }
+
+  &__logo {
+    font-family: "Shrikhand";
+    font-weight: normal;
+    z-index: 1;
+    background: $color-white;
+    @include center-flex;
+    @include box-shadow(0px, 0px, 3px, 3px, $color-black-opaque);   
+    @include mobile-only {
+      @include center-flex;
+      overflow: hidden;
+      height: 70px;
+    }
+
+    h1{
+      margin: 22px 0 22px 0;
+    }
+  }
+
+  &__location {
+    background-color: $color-grey;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    @include mobile-only {
+      display: flex;
+      flex-flow: row wrap-reverse;
+    }
+    i {
+      color: $color-dark-grey;
+    }
+    h4 {
+      margin: 22px 0 22px 15px;
+    }
+  }
+
+  &__prenote-menu {
+    background-color: $color-light-grey;
+    text-align: center;
+    padding-bottom: 25px;
+    @include mobile-only {
+      padding-bottom: 50px;
+    }
+  }
+}

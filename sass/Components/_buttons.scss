@@ -1,0 +1,67 @@
+.btn {
+  color: $color-white;
+  background: $color-gradient;
+  padding: 14px 20px 14px 20px;
+  font-weight: 600;
+  width: 50%;
+  border: none;
+  max-width: 415px;
+
+  transition-property: opacity, transform;
+  transition-duration: 400ms;
+  &:hover {
+    opacity: 0.85;
+    @include box-shadow(3px, -3px, 3px, 7px, darken($color-border-shadow, 10%));
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &--rounded {
+    @include border-radius(30px);
+    @include box-shadow(3px, -3px, 3px, 5px, $color-border-shadow);
+  }
+
+  &--mobile {
+    display: none;
+    @include mobile-only {
+      display: inline-block;
+      min-width: 220px;
+    }
+  }
+
+  @include mobile-only {
+    &--wide-screen {
+      display: none;
+    }
+  }
+}
+
+.heart-btn {
+  &--full {
+    font-weight: normal;
+    color: $color-black;
+    &:hover {
+      animation: fadeIn;
+      animation-duration: 550ms;
+      animation-fill-mode: both;
+      animation-direction: alternate;
+      
+      font-weight: bold;
+      background: $color-gradient;
+      background-clip: text;
+      color: transparent;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+}

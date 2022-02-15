@@ -1,0 +1,175 @@
+.food-list {
+  background: $color-light-grey;
+  padding-left: 12px;
+  padding-right: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  @include desktop-only {
+    flex-direction: row;
+  }
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__img-fit {
+    height: 250px;
+    z-index: -1;
+  }
+
+  &__image {
+    width: 100%;
+    min-width: 420px;
+    object-fit: cover;
+  }
+
+  &__main-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    background: $color-light-grey;
+    margin: 0;
+    padding: 20px 20px 5px 20px;
+    @include border-corner-rad(35px, 35px, 0, 0);
+    @include laptop-only {
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+    @include desktop-only {
+      margin-left: 50px;
+      margin-right: 50px;
+    }
+    a {
+      font-size: 22px;
+      margin-right: 1%;
+    }
+
+   
+  }
+
+  &__heading {
+    position: relative;
+    margin-left: 5px;
+    &--small {
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__underline {
+    position: absolute;
+    background-color: $color-tertiary;
+    width: 40px;
+    height: 4px;
+    top: 25px;
+    left: 1px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+
+  &__card {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 340px;
+    background-color: $color-white;
+    @include box-shadow;
+    @include border-radius(15px);
+    max-height: 80px;
+    margin: 20px 0;
+    padding: 10px 5px 10px 5px;
+    opacity: 0;
+    transform: translateY(0%);
+    animation: list-card 500ms;
+    @for $i from 1 to 12 {
+      &--#{$i} {
+        animation-delay: 150ms * $i;
+      }
+    }
+    animation-fill-mode: both;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+  }
+
+  &__cost {
+    flex: 1;
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  &__confirmation {
+    display: flex;
+    justify-content: flex-end;
+    background: $color-tertiary;
+    padding: 5px;
+    transition-property: transform;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+    transform: translateX(0);
+    &-checkmark {
+      color: $color-white;
+    }
+  }
+
+  &__form {
+    background: $color-light-grey;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  &__btn {
+    width: 51%;
+    max-width: 415px;
+    min-width: 185px;
+  }
+}
+
+//Le contenu des cartes: titre, § et prix
+.card {
+  &__heading {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    font-size: 16px;
+  }
+
+  &__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    flex: 11;
+  }
+}
+
+@keyframes list-card {
+  0% {
+    transform: translateY(5%);
+    opacity: 0;
+    animation-timing-function: ease-out;
+  }
+
+  100% {
+    transform: translateY(-5%);
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+}

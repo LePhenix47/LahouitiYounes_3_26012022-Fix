@@ -1,0 +1,106 @@
+//Mixin pour les Media queries
+@mixin mobile-only {
+  @media screen and (max-width: map-get($breakpoints, mobile)) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media screen and (min-width: map-get($breakpoints, mobile)) and (max-width: map-get($breakpoints, tablet)) {
+    @content;
+  }
+}
+
+@mixin laptop-only {
+  @media screen and (min-width: map-get($breakpoints, laptop)) and (max-width: map-get($breakpoints, desktop)) {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @media screen and (min-width: map-get($breakpoints, desktop)) {
+    @content;
+  }
+}
+
+//Mixin pour les bordures
+@mixin border-radius($border: 15px) {
+  border-radius: $border;
+}
+
+@mixin border-corner-rad($top-left, $top-right, $bottom-right, $bottom-left) {
+  border-radius: $top-left $top-right $bottom-right $bottom-left;
+}
+
+@mixin border($thickness: 1px, $color: $color-primary) {
+  border: $thickness solid $color;
+}
+
+//Minxin pour l'ombrage
+
+@mixin box-shadow(
+  $left: 5px,
+  $right: -5px,
+  $down: 5px,
+  $gradient: 5px,
+  $color: $color-border-shadow
+) {
+  box-shadow: $left $down $gradient $color, $right $down $gradient $color;
+}
+
+//Mixins pour les fonts
+@mixin Shrikhand {
+  font-family: "Shrikhand";
+}
+
+@mixin Roboto-heading {
+  font-family: "Roboto";
+  text-align: left;
+  width: 100%;
+  padding-left: 20px;
+}
+
+//Mixins pour les display
+
+/*----------------Flexbox----------------*/
+
+@mixin center-flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*-------------Grid-------------------*/
+
+@mixin grid-prop-mobile {
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(1, 1fr);
+}
+
+@mixin grid-prop-wide-screen {
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+}
+
+//mixin pour les marges
+
+@mixin margin($top, $right, $bottom, $left) {
+  margin: $top $right $bottom $left;
+}
+
+@mixin padding($top, $right, $bottom, $left) {
+  padding: $top $right $bottom $left;
+}
+
+
+//Mixins pour les positions relatives-absolues
+
+@mixin pos-abs ($top: 0px, $right: 0px, $bottom: 0px, $left: 0px){
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+
+
