@@ -42,7 +42,7 @@
       margin-left: 50px;
       margin-right: 50px;
     }
-    h1{
+    h1 {
       font-weight: normal;
     }
     a {
@@ -98,17 +98,21 @@
     animation-fill-mode: both;
 
     &:hover > .menu__confirmation {
-      visibility: visible;
-      height: auto;
-      width: auto;
-      flex: 3;
-      border-radius: 0 15px 15px 0;
-      opacity: 1;
-      max-width: 20%;
-     
+      @include active-card-checkmark;
     }
+
     &:hover > .menu__confirmation > .menu__confirmation-checkmark {
       transform: rotate(360deg);
+    }
+
+    @include mobile-only {
+      &:active > .menu__confirmation {
+        @include active-card-checkmark;
+      }
+
+      &:active > .menu__confirmation > .menu__confirmation-checkmark {
+        transform: rotate(360deg);
+      }
     }
   }
 

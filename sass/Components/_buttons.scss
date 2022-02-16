@@ -43,15 +43,12 @@
     font-weight: normal;
     color: $color-black;
     &:hover {
-      animation: fadeIn;
-      animation-duration: 550ms;
-      animation-fill-mode: both;
-      animation-direction: alternate;
-      
-      font-weight: bold;
-      background: $color-gradient;
-      background-clip: text;
-      color: transparent;
+      @include active-like-btn;
+    }
+    @include mobile-only{
+      &:active {
+       @include active-like-btn;
+      }
     }
   }
 }
