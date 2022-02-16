@@ -288,60 +288,92 @@ h1, h2 {
   animation: spin-loader-background;
   animation-duration: 3s;
   animation-delay: 200ms;
+  animation-direction: normal;
+  animation: opacity-bg;
+  animation-duration: 4s;
+  animation-delay: 1s;
+  animation-timing-function: ease-out;
   animation-fill-mode: forwards;
+  animation-direction: normal;
 }
 .spinloader__fork-knife {
   color: #9356dc;
-  font-size: 30px;
+  font-size: 80px;
   position: relative;
   z-index: 101;
-  animation: circle-rotation-ease;
+  animation: circle-rotation-normal;
   animation-duration: 3s;
   animation-iteration-count: 2;
-  animation-direction: alternate;
-  animation-fill-mode: both;
+}
+@media screen and (max-width: 768px) {
+  .spinloader__fork-knife {
+    font-size: 30px;
+  }
 }
 .spinloader__fork-knife::before {
   content: "";
   position: absolute;
-  left: 15px;
-  bottom: 15px;
+  left: 45px;
+  bottom: 45px;
+  width: 90px;
+  height: 90px;
+  border-radius: 0 900px 0 0;
   background: #ff79da;
-  width: 30px;
-  height: 30px;
-  border-radius: 0 300px 0 0;
   background-color: #ff79da;
   z-index: 100;
   opacity: 0.5;
-  transform-origin: 0%;
-  animation: circle-rotation-ease;
+  transform-origin: bottom left;
+  animation: circle-rotation-scale;
+  animation-timing-function: ease-in-out;
   animation-duration: 3s;
-  animation-direction: alternate;
-  animation-fill-mode: both;
+}
+@media screen and (max-width: 768px) {
+  .spinloader__fork-knife::before {
+    left: 15px;
+    bottom: 15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 0 300px 0 0;
+  }
 }
 .spinloader__fork-knife::after {
   content: "";
-  position: absolute;
-  left: -45px;
-  top: -45px;
   background: #99e2d0;
-  width: 60px;
-  height: 120px;
-  border-radius: 60px 0 0 60px;
+  position: absolute;
+  left: -60px;
+  top: -60px;
+  height: 180px;
+  width: 90px;
+  border-bottom-left-radius: 170px;
+  border-top-left-radius: 170px;
+  border: 15px solid #99e2d0;
+  border-right: 0;
+  background-color: transparent;
   z-index: 100;
   opacity: 0.5;
+  transform-origin: center right;
   animation: circle-rotation-normal;
   animation-duration: 3s;
-  animation-direction: alternate;
-  animation-fill-mode: both;
+}
+@media screen and (max-width: 768px) {
+  .spinloader__fork-knife::after {
+    left: -20px;
+    top: -20px;
+    height: 60px;
+    width: 30px;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border: 5px solid #99e2d0;
+    border-right: 0;
+    background-color: transparent;
+  }
 }
 
 @keyframes spin-loader-background {
   0% {
-    opacity: 1;
+    animation-timing-function: ease-in-out;
   }
   100% {
-    opacity: 0;
     visibility: hidden;
     animation-timing-function: ease-in;
   }
@@ -351,21 +383,31 @@ h1, h2 {
     transform: rotate(0deg);
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(720deg) scale(3);
     opacity: 0;
     visibility: hidden;
   }
 }
-@keyframes circle-rotation-ease {
+@keyframes circle-rotation-scale {
   0% {
     transform: rotate(0deg);
-    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: rotate(-1800deg);
   }
   100% {
-    transform: rotate(720deg) scale(3);
-    animation-timing-function: ease-in;
+    transform: scale(3);
     opacity: 0;
     visibility: hidden;
+  }
+}
+@keyframes opacity-bg {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    z-index: -22;
   }
 }
 .main__operation {

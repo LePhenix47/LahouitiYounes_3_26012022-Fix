@@ -103,9 +103,26 @@
 
 //Mixin pour les cercles
 
-@mixin semi-circle($diameter: 10px) {
-  height: $diameter;
-  $width: $diameter/2;
+@mixin semi-circle($height: 10px) {
+  height: $height;
+  $width: $height/2;
   width: $width;
   border-radius: $width 0 0 $width;
+}
+
+@mixin empty-semi-circle($height: 10px, $thickness: 10px) {
+  height: $height;
+  width: $height * 0.5;
+  border-bottom-left-radius: -10 + $height;
+  border-top-left-radius: -10 + $height;
+  border: $thickness solid $color-tertiary;
+  border-right: 0;
+  background-color: transparent;
+}
+
+@mixin quarter-circle($radius: 10px) {
+  width: $radius;
+  height: $radius;
+  $thickness: $radius * 10;
+  border-radius: 0 $thickness 0 0;
 }
