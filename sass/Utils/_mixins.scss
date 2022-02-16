@@ -113,8 +113,7 @@
 @mixin empty-semi-circle($height: 10px, $thickness: 10px) {
   height: $height;
   width: $height * 0.5;
-  border-bottom-left-radius: -10 + $height;
-  border-top-left-radius: -10 + $height;
+  border-radius: $height 0 0 $height;
   border: $thickness solid $color-tertiary;
   border-right: 0;
   background-color: transparent;
