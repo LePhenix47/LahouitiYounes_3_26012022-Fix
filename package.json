@@ -1,13 +1,13 @@
 {
   "name": "lahouitiyounes_3_24012022",
   "version": "1.0.0",
-  "description": "projet 3 crée et initliasé le mercredi 26 janvier 2022",
+  "description": "projet 3 crée le lundi 24 janvier 2022 et initiliasé le mercredi 26 janvier 2022",
   "main": "index.js",
   "scripts": {
     "sass" : "sass --watch sass/main.scss:css/style.css",
-    "prefix" : "postcss ./css/style.css --use autoprefixer -d ./css/prefixed"
+    "prefix" : "postcss css/style.css --use autoprefixer -d css/prefixed"
   },
   "author": "Younes Lahouiti",
   "license": "ISC",
-  "browserlist":"last 4 versions"
+  "browserslist":"last 4 versions"
 }

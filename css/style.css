@@ -642,6 +642,9 @@ h1, h2 {
     margin-right: 50px;
   }
 }
+.menu__main-heading h1 {
+  font-weight: normal;
+}
 .menu__main-heading a {
   font-size: 22px;
   margin-right: 1%;
