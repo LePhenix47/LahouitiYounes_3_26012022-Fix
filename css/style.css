@@ -280,7 +280,7 @@ h1, h2 {
   position: fixed;
   height: 100%;
   width: 100%;
-  background: linear-gradient(to right top, #9356dc, #353535);
+  background: linear-gradient(to right top, #99e2d0, #9356dc);
   z-index: 99;
   display: flex;
   justify-content: center;

@@ -98,7 +98,7 @@
   }
 
   100% {
-    transform: rotate(720deg) scale(3);
+    transform: rotate(720deg) scale(3); //2 tours en sens horaire
     opacity: 0;
     visibility: hidden;
   }
@@ -110,7 +110,7 @@
   }
 
   50% {
-    transform: rotate(-1800deg); //5 tours anti-horaires
+    transform: rotate(-1800deg); //5 tours en sens anti-horaire
   }
 
   100% {
