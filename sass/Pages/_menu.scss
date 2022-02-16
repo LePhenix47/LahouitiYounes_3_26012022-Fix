@@ -129,8 +129,6 @@
 
   &__confirmation {
     visibility: hidden;
-    height: 0px;
-    width: 0px;
     max-width: 0px;
 
     display: flex;
@@ -141,13 +139,13 @@
     background: $color-tertiary;
     padding: 5px;
 
-    transition: transform 400ms, opacity 350ms, max-width 1s;
+    transition: all 400ms;
 
     &-checkmark {
       color: $color-white;
       font-size: 26px;
       transform: rotate(180deg);
-      transition: transform 750ms;
+      transition: transform 350ms;
     }
   }
 

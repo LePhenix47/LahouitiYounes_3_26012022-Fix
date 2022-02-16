@@ -8,9 +8,9 @@
   justify-content: center;
   align-items: center;
   animation: spin-loader-background;
-    animation-duration: 2s;
-    animation-delay: 400ms;
-    animation-fill-mode: forwards;
+  animation-duration: 3s;
+  animation-delay: 200ms;
+  animation-fill-mode: forwards;
 
   &__fork-knife {
     color: $color-primary;
@@ -18,9 +18,11 @@
     position: relative;
     z-index: 101;
 
-    transition: transform;
-    transition-duration: 250ms;
-    
+    animation: circle-rotation-ease;
+    animation-duration: 3s;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+    animation-fill-mode: both;
 
     &::before {
       content: "";
@@ -34,9 +36,12 @@
       background-color: $color-secondary;
       z-index: 100;
       opacity: 0.5;
-     
-      transform: rotate(360deg);
-      transition-timing-function: ease-out;
+      transform-origin: 0%;
+      animation: circle-rotation-ease;
+      animation-duration: 3s;
+    
+      animation-direction: alternate;
+      animation-fill-mode: both;
     }
     &::after {
       content: "";
@@ -49,18 +54,48 @@
       border-radius: 60px 0 0 60px;
       z-index: 100;
       opacity: 0.5;
-      transform: rotate(360deg);
+      animation: circle-rotation-normal;
+      animation-duration: 3s;
+    
+      animation-direction: alternate;
+      animation-fill-mode: both;
     }
   }
 }
 
 @keyframes spin-loader-background {
   0% {
-   opacity: 1;
-   animation-timing-function: ease-in;
+    opacity: 1;
+  }
+  
+  100% {
+    opacity: 0;
+    visibility: hidden;
+    animation-timing-function: ease-in;
+    
+  }
+}
+
+@keyframes circle-rotation-normal {
+  0% {
+    transform: rotate(0deg);
   }
   100% {
-    transform: scale(3);
+    transform: rotate(360deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes circle-rotation-ease {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: ease-out;
+  }
+
+  100% {
+    transform: rotate(720deg) scale(3);
+    animation-timing-function: ease-in;
     opacity: 0;
     visibility: hidden;
   }
