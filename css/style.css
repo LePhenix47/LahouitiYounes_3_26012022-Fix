@@ -76,7 +76,7 @@ h1, h2 {
 
 .heart-btn--full {
   font-weight: normal;
-  color: #000;
+  color: #000000;
 }
 .heart-btn--full:hover {
   animation: fadeIn;
@@ -280,24 +280,64 @@ h1, h2 {
   position: fixed;
   height: 100%;
   width: 100%;
-  z-index: -99;
-  display: none;
+  background: linear-gradient(to right top, #9356dc, #353535);
+  z-index: 99;
+  display: flex;
   justify-content: center;
   align-items: center;
+  animation: spin-loader-background;
+  animation-duration: 2s;
+  animation-delay: 400ms;
+  animation-fill-mode: forwards;
 }
 .spinloader__fork-knife {
   color: #9356dc;
   font-size: 30px;
+  position: relative;
+  z-index: 101;
+  transition: transform;
+  transition-duration: 250ms;
 }
-.spinloader__quarter-circle {
-  color: #ff79da;
-  width: 20px;
-  border-radius: 5px;
+.spinloader__fork-knife::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  background: #ff79da;
+  width: 30px;
+  height: 30px;
+  border-radius: 0 300px 0 0;
+  background-color: #ff79da;
+  z-index: 100;
+  opacity: 0.5;
+  transform: rotate(360deg);
+  transition-timing-function: ease-out;
 }
-.spinloader__half-circle {
-  color: #99e2d0;
+.spinloader__fork-knife::after {
+  content: "";
+  position: absolute;
+  left: -45px;
+  top: -45px;
+  background: #99e2d0;
+  width: 60px;
+  height: 120px;
+  border-radius: 60px 0 0 60px;
+  z-index: 100;
+  opacity: 0.5;
+  transform: rotate(360deg);
 }
 
+@keyframes spin-loader-background {
+  0% {
+    opacity: 1;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
 .main__operation {
   text-align: center;
   display: flex;
@@ -617,10 +657,20 @@ h1, h2 {
 .menu__body--11 {
   animation-delay: 1650ms;
 }
+.menu__body--12 {
+  animation-delay: 1800ms;
+}
 .menu__body:hover > .menu__confirmation {
-  display: flex;
+  visibility: visible;
+  height: auto;
+  width: auto;
   flex: 3;
   border-radius: 0 15px 15px 0;
+  opacity: 1;
+  max-width: 20%;
+}
+.menu__body:hover > .menu__confirmation > .menu__confirmation-checkmark {
+  transform: rotate(360deg);
 }
 .menu__card {
   flex: 11;
@@ -638,18 +688,23 @@ h1, h2 {
   font-weight: bold;
 }
 .menu__confirmation {
-  display: none;
+  visibility: hidden;
+  height: 0px;
+  width: 0px;
+  max-width: 0px;
+  display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
   background: #99e2d0;
   padding: 5px;
-  transition-property: transform;
-  transition-duration: 500ms;
-  transition-timing-function: ease-in-out;
+  transition: transform 400ms, opacity 350ms, max-width 1s;
 }
 .menu__confirmation-checkmark {
   color: #fff;
   font-size: 26px;
+  transform: rotate(180deg);
+  transition: transform 750ms;
 }
 .menu__form {
   background: #f6f6f6;

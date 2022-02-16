@@ -3,25 +3,27 @@ $color-primary: #9356dc;
 $color-secondary: #ff79da;
 $color-tertiary: #99e2d0;
 
-$color-gradient: linear-gradient(
-  to right bottom,
-  $color-secondary,
-  $color-primary);
+$color-gradient: linear-gradient(to right bottom, $color-secondary, $color-primary);
+
+
 
 $color-white: #fff;
 $color-grey: #eaeaea;
 $color-light-grey: #f6f6f6;
 $color-dark-grey: #353535;
-$color-black: #000;
+$color-black: #000000;
 $color-black-opaque: #0000001d;
 $color-border-shadow: #d2d2d2;
 $color-icons: #7e7e7e;
 
+$color-page-loader: linear-gradient(to right top, $color-primary, $color-dark-grey);
 
 //maps
 $breakpoints: (
   mobile: 768px,
   tablet: 992px,
-  laptop: 993px,     //Petit écran ordi
-  desktop: 1150px,   //Grand écran ordi
+  laptop: 993px,
+  //Petit écran ordi
+  desktop: 1150px,
+  //Grand écran ordi
 );

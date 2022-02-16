@@ -2,22 +2,67 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  z-index: -99;
-  display: none;
+  background: $color-page-loader;
+  z-index: 99;
+  display: flex;
   justify-content: center;
   align-items: center;
-  &__fork-knife{
+  animation: spin-loader-background;
+    animation-duration: 2s;
+    animation-delay: 400ms;
+    animation-fill-mode: forwards;
+
+  &__fork-knife {
     color: $color-primary;
     font-size: 30px;
+    position: relative;
+    z-index: 101;
+
+    transition: transform;
+    transition-duration: 250ms;
     
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 15px;
+      bottom: 15px;
+      background: $color-secondary;
+      width: 30px;
+      height: 30px;
+      border-radius: 0 300px 0 0;
+      background-color: $color-secondary;
+      z-index: 100;
+      opacity: 0.5;
+     
+      transform: rotate(360deg);
+      transition-timing-function: ease-out;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      left: -45px;
+      top: -45px;
+      background: $color-tertiary;
+      width: 60px; //Moitié de la largeur
+      height: 120px;
+      border-radius: 60px 0 0 60px;
+      z-index: 100;
+      opacity: 0.5;
+      transform: rotate(360deg);
+    }
   }
-  &__quarter-circle{
-    color: $color-secondary;
-    width: 20px;
-    border-radius: 5px;
+}
+
+@keyframes spin-loader-background {
+  0% {
+   opacity: 1;
+   animation-timing-function: ease-in;
   }
-  &__half-circle{
-    color: $color-tertiary;
+  100% {
+    transform: scale(3);
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -66,7 +111,7 @@
       padding: 25px;
       margin: 20px;
       background-color: $color-light-grey;
-      
+
       list-style-type: none;
       counter-increment: fonction; //LI
       &::before {

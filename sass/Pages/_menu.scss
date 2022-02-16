@@ -76,7 +76,7 @@
   &__body {
     display: flex;
     flex-direction: row;
-    
+
     min-width: 340px;
     background-color: $color-white;
     @include box-shadow;
@@ -87,17 +87,25 @@
     opacity: 0;
     transform: translateY(0%);
     animation: list-card 500ms;
-    @for $i from 1 to 12 {
+    @for $i from 1 to 13 {
       &--#{$i} {
         animation-delay: 150ms * $i;
       }
     }
     animation-fill-mode: both;
 
-    &:hover > .menu__confirmation{
-      display: flex;
+    &:hover > .menu__confirmation {
+      visibility: visible;
+      height: auto;
+      width: auto;
       flex: 3;
       border-radius: 0 15px 15px 0;
+      opacity: 1;
+      max-width: 20%;
+     
+    }
+    &:hover > .menu__confirmation > .menu__confirmation-checkmark {
+      transform: rotate(360deg);
     }
   }
 
@@ -120,20 +128,26 @@
   }
 
   &__confirmation {
-    display: none;
+    visibility: hidden;
+    height: 0px;
+    width: 0px;
+    max-width: 0px;
+
+    display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
 
     background: $color-tertiary;
     padding: 5px;
-    transition-property: transform;
-    transition-duration: 500ms;
-    transition-timing-function: ease-in-out;
-    
+
+    transition: transform 400ms, opacity 350ms, max-width 1s;
+
     &-checkmark {
       color: $color-white;
       font-size: 26px;
-
+      transform: rotate(180deg);
+      transition: transform 750ms;
     }
   }
 

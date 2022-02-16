@@ -91,10 +91,9 @@
   padding: $top $right $bottom $left;
 }
 
-
 //Mixins pour les positions relatives-absolues
 
-@mixin pos-abs ($top: 0px, $right: 0px, $bottom: 0px, $left: 0px){
+@mixin pos-abs($top: 0px, $right: 0px, $bottom: 0px, $left: 0px) {
   position: absolute;
   top: $top;
   right: $right;
@@ -102,5 +101,11 @@
   left: $left;
 }
 
+//Mixin pour les cercles
 
-
+@mixin semi-circle($diameter: 10px) {
+  height: $diameter;
+  $width: $diameter/2;
+  width: $width;
+  border-radius: $width 0 0 $width;
+}
