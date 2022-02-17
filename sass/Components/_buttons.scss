@@ -10,11 +10,13 @@
   transition-property: opacity, transform;
   transition-duration: 400ms;
   &:hover {
+    cursor: pointer;
     opacity: 0.85;
     @include box-shadow(3px, -3px, 3px, 7px, darken($color-border-shadow, 10%));
   }
 
   &:active {
+    cursor: pointer;
     transform: scale(0.95);
   }
 

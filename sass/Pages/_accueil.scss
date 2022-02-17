@@ -180,6 +180,7 @@
       }
       &:hover {
         background: #f5edff;
+        cursor: pointer;
         i {
           color: $color-primary;
         }
@@ -266,6 +267,7 @@
     }
 
     &:hover {
+      cursor: pointer;
       transform: scale(1.05);
       //Agrandit de 5% la carte lors du survol
     }
