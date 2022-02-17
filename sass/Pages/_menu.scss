@@ -16,6 +16,16 @@
   overflow: hidden;
 
   &__img-fit {
+    @include tablet-only{
+      height: 500px;
+    }
+    @include laptop-only{
+      height: 500px;
+    }
+    @include desktop-only {
+      height: 600px;
+      margin-top: -150px;
+    }
     height: 250px;
     z-index: -1;
   }
