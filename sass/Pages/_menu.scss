@@ -67,17 +67,19 @@
     &--small {
       font-weight: 400;
       margin-bottom: 20px;
+      &::after {
+        position: absolute;
+        background-color: #99e2d0;
+        width: 40px;
+        height: 4px;
+        top: 25px;
+        left: 1px;
+        content: "";
+      }
     }
+    
   }
 
-  &__underline {
-    position: absolute;
-    background-color: $color-tertiary;
-    width: 40px;
-    height: 4px;
-    top: 25px;
-    left: 1px;
-  }
 
   &__list {
     display: flex;
