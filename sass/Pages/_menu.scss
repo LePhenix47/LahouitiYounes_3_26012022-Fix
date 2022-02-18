@@ -69,9 +69,9 @@
       margin-bottom: 20px;
       &::after {
         position: absolute;
-        background-color: #99e2d0;
+        background-color: $color-tertiary;
         width: 40px;
-        height: 4px;
+        height: 4px;  
         top: 25px;
         left: 1px;
         content: "";
